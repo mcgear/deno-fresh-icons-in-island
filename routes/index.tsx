@@ -28,7 +28,7 @@ export default function Home() {
 
         <MenuButton
           menuStyle={MenuButtonStyleTypes.Responsive}
-          toggleChildren="Hello"
+          toggleChildren="MenuButton"
         >
           <>
             <Action

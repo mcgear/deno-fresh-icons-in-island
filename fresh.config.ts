@@ -8,7 +8,8 @@ export default defineConfig({
     tailwind(),
     {
       name: 'atomic_islands',
-      islands: atomicIslandsConfig().map((i) => i as PluginIslands),
+      islands: atomicIslandsConfig()[0] as PluginIslands,
+      // islands: atomicIslandsConfig().map((i) => i as PluginIslands),
     },
   ],
 });

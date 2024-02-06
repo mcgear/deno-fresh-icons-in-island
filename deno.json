@@ -17,8 +17,8 @@
   "exclude": ["**/_fresh/*"],
   "imports": {
     "__$fresh/": "../../fathym-deno/fresh/",
-    "_$fresh/": "https://deno.land/x/fresh@1.6.3/",
-    "$fresh/": "https://raw.githubusercontent.com/fathym-deno/fresh/multi-plugin-islands-configs/",
+    "$fresh/": "https://deno.land/x/fresh@1.6.3/",
+    "_$fresh/": "https://raw.githubusercontent.com/fathym-deno/fresh/multi-plugin-islands-configs/",
     "preact": "https://esm.sh/preact@10.19.2",
     "preact/": "https://esm.sh/preact@10.19.2/",
     "@preact/signals": "https://esm.sh/*@preact/signals@1.2.1",
