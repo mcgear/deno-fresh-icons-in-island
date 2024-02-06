@@ -2,6 +2,8 @@
   "lock": false,
   "tasks": {
     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable -A -",
+    "manifest": "deno task cli manifest $(pwd)",
     "start": "deno run -A --watch=static/,routes/ dev.ts",
     "build": "deno run -A dev.ts build",
     "preview": "deno run -A main.ts",
@@ -9,38 +11,28 @@
   },
   "lint": {
     "rules": {
-      "tags": [
-        "fresh",
-        "recommended"
-      ]
-    },
-    "exclude": [
-      "_fresh"
-    ]
+      "tags": ["fresh", "recommended"]
+    }
   },
-  "fmt": {
-    "exclude": [
-      "_fresh"
-    ]
-  },
+  "exclude": ["**/_fresh/*"],
   "imports": {
-    "$fresh/": "https://deno.land/x/fresh@1.4.2/",
-    "preact": "https://esm.sh/preact@10.15.1",
-    "preact/": "https://esm.sh/preact@10.15.1/",
-    "preact-render-to-string": "https://esm.sh/*preact-render-to-string@6.2.1",
-    "@preact/signals": "https://esm.sh/*@preact/signals@1.1.3",
-    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.2.3",
-    "twind": "https://esm.sh/@twind/core@1.1.3",
-    "twind/": "https://esm.sh/@twind/core@1.1.3/",
-    "$std/": "https://deno.land/std@0.193.0/",
-    "twind-preset-autoprefix": "https://esm.sh/@twind/preset-autoprefix@1.0.7",
-    "twind-preset-tailwind": "https://esm.sh/@twind/preset-tailwind@1.1.4",
-    "$fresh/plugins/twind.ts": "https://deno.land/x/fresh_twindv1_plugin@v1.3.0/twind.ts",
-    "@fathym/atomic-icons": "https://deno.land/x/fathym_atomic_icons@v0.0.3-integration21/mod.ts",
-    "$fathym/atomic-icons": "./build/iconset/icons/_exports.ts"
+    "__$fresh/": "../../fathym-deno/fresh/",
+    "_$fresh/": "https://deno.land/x/fresh@1.6.3/",
+    "$fresh/": "https://raw.githubusercontent.com/fathym-deno/fresh/multi-plugin-islands-configs/",
+    "preact": "https://esm.sh/preact@10.19.2",
+    "preact/": "https://esm.sh/preact@10.19.2/",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.1",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.0",
+    "tailwindcss": "npm:tailwindcss@3.3.5",
+    "tailwindcss/": "npm:/tailwindcss@3.3.5/",
+    "tailwindcss/plugin": "npm:/tailwindcss@3.3.5/plugin.js",
+    "$std/": "https://deno.land/std@0.211.0/",
+    "@fathym/atomic": "https://deno.land/x/fathym_atomic@v0.0.127/mod.ts",
+    "@fathym/atomic/": "https://deno.land/x/fathym_atomic@v0.0.127/"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
     "jsxImportSource": "preact"
-  }
+  },
+  "nodeModulesDir": true
 }

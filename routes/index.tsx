@@ -1,5 +1,11 @@
-import { useSignal } from "@preact/signals";
-import Counter from "../islands/Counter.tsx";
+import { useSignal } from '@preact/signals';
+import Counter from '../islands/Counter.tsx';
+import {
+  Action,
+  ActionStyleTypes,
+  MenuButton,
+  MenuButtonStyleTypes,
+} from '@fathym/atomic';
 
 export default function Home() {
   const count = useSignal(3);
@@ -19,6 +25,25 @@ export default function Home() {
           <code class="mx-2">./routes/index.tsx</code> file, and refresh.
         </p>
         <Counter count={count} />
+
+        <MenuButton
+          menuStyle={MenuButtonStyleTypes.Responsive}
+          toggleChildren="Hello"
+        >
+          <>
+            <Action
+              href="/signout"
+              class="mx-2"
+              actionStyle={
+                ActionStyleTypes.Link |
+                ActionStyleTypes.Rounded |
+                ActionStyleTypes.Icon
+              }
+            >
+              Sign Out
+            </Action>
+          </>
+        </MenuButton>
       </div>
     </div>
   );

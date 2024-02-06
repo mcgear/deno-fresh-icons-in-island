@@ -1,12 +1,14 @@
-import { defineConfig } from "$fresh/server.ts";
-import twindPlugin from "$fresh/plugins/twind.ts";
-import twindConfig from "./twind.config.ts";
-import { curIconSetGenerateConfig } from "./fathym-atomic-icons.config.ts";
-import { iconSetPlugin } from "@fathym/atomic-icons";
+import { defineConfig } from '$fresh/server.ts';
+import tailwind from '$fresh/plugins/tailwind.ts';
+import { islandsConfig as atomicIslandsConfig } from '@fathym/atomic';
+import { PluginIslands } from '$fresh/server.ts';
 
 export default defineConfig({
   plugins: [
-    twindPlugin(twindConfig),
-    await iconSetPlugin(curIconSetGenerateConfig),
+    tailwind(),
+    {
+      name: 'atomic_islands',
+      islands: atomicIslandsConfig().map((i) => i as PluginIslands),
+    },
   ],
 });
